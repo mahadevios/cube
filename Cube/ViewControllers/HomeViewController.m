@@ -21,9 +21,11 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.tabBarController.navigationItem.hidesBackButton=YES;
-    self.tabBarController.navigationItem.title=@"Cube Dictate";
-    self.tabBarController.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"More"] style:UIBarButtonItemStylePlain target:self action:@selector(showUserSettings:)];
+   
+       // [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:YES completion:nil];
+    
+    NSLog(@"%@",self.navigationController);
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"More"] style:UIBarButtonItemStylePlain target:self action:@selector(showUserSettings:)];
     transferFailedView.layer.cornerRadius=4.0f;
     transferredView.layer.cornerRadius=4.0f;
     awaitingTransferView.layer.cornerRadius=4.0f;
@@ -58,9 +60,8 @@
     {
         vc.currentViewName=@"Transfer failed";
     }
-    [self.tabBarController.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 
-    NSLog(@"%@",self.tabBarController.navigationController);
     NSLog(@"%@",self.tabBarController);
 
 }

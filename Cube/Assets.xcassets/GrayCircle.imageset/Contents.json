@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "yellowcircle.png",
+      "filename" : "graycircle.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "yellowcircle@2x.png",
+      "filename" : "graycircle@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "yellowcircle@3x.png",
+      "filename" : "graycircle@3x.png",
       "scale" : "3x"
     }
   ],

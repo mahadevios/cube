@@ -113,49 +113,51 @@
 {
     
     UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.tag=indexPath.row;
-    if (indexPath.section==0)
-    {
-       UILabel* nameLabel= [cell viewWithTag:101];
-        nameLabel.text=[recordSettingsItemsarray objectAtIndex:indexPath.row];
-        
-        if (indexPath.row!=0 && indexPath.row!=4)
+        cell.tag=indexPath.row;
+        if (indexPath.section==0)
         {
-            SwitchCreation* switchobj=[SwitchCreation new];
-            switchobj.tableview=tableview;
-            switchobj.cell=cell;
-            switchobj.label=nameLabel;
-//            UISwitch *onoff = [[UISwitch alloc] initWithFrame: CGRectMake(tableview.frame.size.width-80, nameLabel.frame.origin.y, 0, 0)];
-//            [onoff addTarget: self action: @selector(flip:) forControlEvents:UIControlEventValueChanged];
-//            [cell addSubview:onoff];
-            //cell.tag=indexPath.row;
-            [self performSelector:@selector(createSwitch:) withObject:switchobj afterDelay:0.0];
+            UILabel* nameLabel= [cell viewWithTag:101];
+            nameLabel.text=[recordSettingsItemsarray objectAtIndex:indexPath.row];
+            
+            if (indexPath.row!=0 && indexPath.row!=4)
+            {
+                SwitchCreation* switchobj=[SwitchCreation new];
+                switchobj.tableview=tableview;
+                switchobj.cell=cell;
+                switchobj.label=nameLabel;
+                //            UISwitch *onoff = [[UISwitch alloc] initWithFrame: CGRectMake(tableview.frame.size.width-80, nameLabel.frame.origin.y, 0, 0)];
+                //            [onoff addTarget: self action: @selector(flip:) forControlEvents:UIControlEventValueChanged];
+                //            [cell addSubview:onoff];
+                //cell.tag=indexPath.row;
+                [self performSelector:@selector(createSwitch:) withObject:switchobj afterDelay:0.0];
+                
+            }
             
         }
-       
-    }
-    if (indexPath.section==1)
-    {
-        UILabel* nameLabel= [cell viewWithTag:101];
-        nameLabel.text=[storageManagementItemsArray objectAtIndex:indexPath.row];
-    }
-    if (indexPath.section==2)
-    {
-        UILabel* nameLabel= [cell viewWithTag:101];
-        nameLabel.text=[PlaybackAutoRewindByArray objectAtIndex:indexPath.row];
-    }
-    
-    //to remove underline of last row of section so that scetion view underline does not ger override
-    if (indexPath.section==0 && indexPath.row==recordSettingsItemsarray.count-1)
-    {
-        UIView* vw=[cell viewWithTag:102];
-        [vw removeFromSuperview];
-    }
-    if (indexPath.section==1 && indexPath.row==storageManagementItemsArray.count-1)
-    {
-        UIView* vw=[cell viewWithTag:102];
-        [vw removeFromSuperview];
-    }    return cell;
+        
+        //to remove underline of last row of section so that scetion view underline does not ger override
+        if (indexPath.section==0 && indexPath.row==recordSettingsItemsarray.count-1)
+        {
+            UIView* vw=[cell viewWithTag:102];
+            [vw removeFromSuperview];
+        }
+        if (indexPath.section==1 && indexPath.row==storageManagementItemsArray.count-1)
+        {
+            UIView* vw=[cell viewWithTag:102];
+            [vw removeFromSuperview];
+        }
+        if (indexPath.section==1)
+        {
+            UILabel* nameLabel= [cell viewWithTag:101];
+            nameLabel.text=[storageManagementItemsArray objectAtIndex:indexPath.row];
+        }
+        if (indexPath.section==2)
+        {
+            UILabel* nameLabel= [cell viewWithTag:101];
+            nameLabel.text=[PlaybackAutoRewindByArray objectAtIndex:indexPath.row];
+        }
+
+    return cell;
 }
 
 -(void)createSwitch:(SwitchCreation*)sender
