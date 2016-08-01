@@ -22,10 +22,16 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
- self.tabBarController.navigationItem.title=@"Alert";
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"More"] style:UIBarButtonItemStylePlain target:self action:@selector(showUserSettings:)];
+
+ self.navigationItem.title=@"Alert";
 
 }
-
+-(void)showUserSettings:(id)sender
+{
+    [self.navigationController presentViewController:[self.storyboard  instantiateViewControllerWithIdentifier:@"UserSettingsNavigationController"] animated:YES completion:nil];
+    // [self.navigationController pushViewController:[self.storyboard  instantiateViewControllerWithIdentifier:@"UserSettingsViewController"] animated:YES];
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;

@@ -1,4 +1,6 @@
 //http://www.appcoda.com/customize-navigation-status-bar-ios-7/
+
+//pixel to point conversion: http://endmemo.com/sconvert/pixelpoint.php
 //  ViewController.m
 //  Cube
 //
@@ -104,7 +106,16 @@
 
 - (IBAction)submitButtonCilcked:(id)sender
 {
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SelectDepartmentViewController"] animated:YES];
+    
+  //  [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SelectDepartmentViewController"] animated:YES];
+    [self dismissViewControllerAnimated:YES completion:^(){
+        [[[[[UIApplication sharedApplication]delegate] window] rootViewController] presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SelectDepartmentViewController"] animated:YES completion:nil] ;   }];
+//    [[[[[UIApplication sharedApplication]delegate] window] rootViewController] presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SelectDepartmentViewController"] animated:YES completion:nil];
+    
+}
+
+- (IBAction)cancelButtonClicked:(id)sender
+{
     
 }
 @end

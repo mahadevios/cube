@@ -8,6 +8,7 @@
 
 #import "SelectDepartmentViewController.h"
 #import "MainTabBarViewController.h"
+#import "LoginViewController.h"
 @interface SelectDepartmentViewController ()
 
 @end
@@ -49,8 +50,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //MainTabBarViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
+   // LoginViewController* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+   // [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:YES completion:nil];
+    //[vc dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"] animated:YES];
+    //[self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"] animated:YES];
     NSLog(@"%@",self.navigationController);
 
 }
