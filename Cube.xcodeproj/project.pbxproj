@@ -19,6 +19,7 @@
 		847222511D47368A00C00F20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8472224F1D47368A00C00F20 /* LaunchScreen.storyboard */; };
 		8472225C1D47368A00C00F20 /* CubeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8472225B1D47368A00C00F20 /* CubeTests.m */; };
 		847222671D47368A00C00F20 /* CubeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 847222661D47368A00C00F20 /* CubeUITests.m */; };
+		84AB68591D536961006F962D /* InCompleteDictationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB68581D536961006F962D /* InCompleteDictationViewController.m */; };
 		84FCCFA21D48B75A00E3D7AE /* SelectDepartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCCFA11D48B75A00E3D7AE /* SelectDepartmentViewController.m */; };
 		84FCCFA51D48CE3700E3D7AE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCCFA41D48CE3700E3D7AE /* HomeViewController.m */; };
 		84FCCFA81D48CEB600E3D7AE /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FCCFA71D48CEB600E3D7AE /* RecordViewController.m */; };
@@ -69,6 +70,8 @@
 		847222621D47368A00C00F20 /* CubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		847222661D47368A00C00F20 /* CubeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeUITests.m; sourceTree = "<group>"; };
 		847222681D47368A00C00F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84AB68571D536961006F962D /* InCompleteDictationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InCompleteDictationViewController.h; sourceTree = "<group>"; };
+		84AB68581D536961006F962D /* InCompleteDictationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InCompleteDictationViewController.m; sourceTree = "<group>"; };
 		84FCCFA01D48B75A00E3D7AE /* SelectDepartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDepartmentViewController.h; sourceTree = "<group>"; };
 		84FCCFA11D48B75A00E3D7AE /* SelectDepartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDepartmentViewController.m; sourceTree = "<group>"; };
 		84FCCFA31D48CE3700E3D7AE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				84FCCFAA1D48CEC400E3D7AE /* ListViewController.m */,
 				84FCCFAC1D48CED300E3D7AE /* AlertViewController.h */,
 				84FCCFAD1D48CED300E3D7AE /* AlertViewController.m */,
+				84AB68571D536961006F962D /* InCompleteDictationViewController.h */,
+				84AB68581D536961006F962D /* InCompleteDictationViewController.m */,
 				844C4A711D4B393800CF3DB4 /* UserSettingsViewController.h */,
 				844C4A721D4B393800CF3DB4 /* UserSettingsViewController.m */,
 				84FCCFAF1D48D01000E3D7AE /* MainTabBarViewController.h */,
@@ -368,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AB68591D536961006F962D /* InCompleteDictationViewController.m in Sources */,
 				84FCCFA21D48B75A00E3D7AE /* SelectDepartmentViewController.m in Sources */,
 				847222491D47368A00C00F20 /* LoginViewController.m in Sources */,
 				844C4A731D4B393800CF3DB4 /* UserSettingsViewController.m in Sources */,

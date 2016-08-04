@@ -65,7 +65,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //MainTabBarViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
-    
+    [self.navigationController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"Navigation"] animated:YES completion:nil];
+
     
 }
 

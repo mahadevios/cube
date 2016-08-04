@@ -1,17 +1,18 @@
 //
-//  AlertViewController.m
+//  InCompleteDictationViewController.m
 //  Cube
 //
-//  Created by mac on 27/07/16.
+//  Created by mac on 04/08/16.
 //  Copyright © 2016 Xanadutec. All rights reserved.
 //
 
-#import "AlertViewController.h"
-@interface AlertViewController ()
+#import "InCompleteDictationViewController.h"
+
+@interface InCompleteDictationViewController ()
 
 @end
 
-@implementation AlertViewController
+@implementation InCompleteDictationViewController
 
 - (void)viewDidLoad
 {
@@ -21,17 +22,15 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"More"] style:UIBarButtonItemStylePlain target:self action:@selector(showUserSettings:)];
-
- self.navigationItem.title=@"Alert";
+    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"Back"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewController:)];
+    
+    self.navigationItem.title=@"Incomplete Dictation (s)";
 
 }
--(void)showUserSettings:(id)sender
+-(void)popViewController:(id)sender
 {
-       //MMSheetView
-   
-    [self.navigationController presentViewController:[self.storyboard  instantiateViewControllerWithIdentifier:@"UserSettingsNavigationController"] animated:YES completion:nil];
-    // [self.navigationController pushViewController:[self.storyboard  instantiateViewControllerWithIdentifier:@"UserSettingsViewController"] animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -41,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 8;
     
 }
 
@@ -49,25 +48,23 @@
 {
     
     UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    UILabel* inCompleteDictationLabel=[cell viewWithTag:101];
-    UILabel* noDictationLabel=[cell viewWithTag:102];
-    if (indexPath.row==0)
-    {
-        inCompleteDictationLabel.text=@"Incomplete Dictations";
+    UILabel* fileNameLabel=[cell viewWithTag:101];
+    UILabel* recordingDurationLabel=[cell viewWithTag:102];
+    UILabel* nameLabel=[cell viewWithTag:103];
+    UILabel* dateLabel=[cell viewWithTag:104];
+    UILabel* timeLabel=[cell viewWithTag:105];
 
-    }
-    else
-    inCompleteDictationLabel.text=@"No Dictation";
-    noDictationLabel.text=@"0";
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //MainTabBarViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
     
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"InCompleteDictationViewController"] animated:YES];
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"] animated:YES];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
