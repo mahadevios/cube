@@ -54,11 +54,11 @@
     UILabel* dateLabel=[cell viewWithTag:104];
 
 
-    fileNameLabel.text=[NSString stringWithFormat:@"%@",@"Filename"];
-    timeLabel.text=[NSString stringWithFormat:@"%@",@"time"];
-    transferByLabel.text=[NSString stringWithFormat:@"%@",@"abc"];
+    fileNameLabel.text=[NSString stringWithFormat:@"%@",@"MOB-147023467890"];
+    timeLabel.text=[NSString stringWithFormat:@"%@",@"Transferred 12:18:00 PM"];
+    transferByLabel.text=[NSString stringWithFormat:@"%@",@"Sanjay Ubale"];
     
-    dateLabel.text=[NSString stringWithFormat:@"%@",@"date"];
+    dateLabel.text=[NSString stringWithFormat:@"%@",@"08/04/2016"];
 
     return cell;
 }

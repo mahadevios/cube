@@ -42,11 +42,11 @@
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"More"] style:UIBarButtonItemStylePlain target:self action:@selector(showUserSettings:)];
     self.navigationItem.title=@"Record";
     UILabel* fileNameLabel= [self.view viewWithTag:101];
-    fileNameLabel.text=@"Filename";
+    fileNameLabel.text=@"MOB-12633456787564344";
     UILabel* transferredByLabel= [self.view viewWithTag:102];
-    transferredByLabel.text=@"abc";
+    transferredByLabel.text=@"Sanjay Ubale";
     UILabel* dateLabel= [self.view viewWithTag:103];
-    dateLabel.text=@"date";
+    dateLabel.text=@"3/08/2016";
 
 }
 
@@ -74,7 +74,7 @@
     if (roundedView.tag==201)
     {
         startStopPauseImageview.image=[UIImage imageNamed:@"Stop"];
-        startStopPauseImageview.frame=CGRectMake((circleView.frame.size.width/2)-10, (circleView.frame.size.height/2)-10, 15, 15);
+        startStopPauseImageview.frame=CGRectMake((circleView.frame.size.width/2)-15, (circleView.frame.size.height/2)-8, 15, 15);
 
         circleView.backgroundColor=[UIColor grayColor];
         
@@ -84,7 +84,7 @@
     if (roundedView.tag==202)
     {
         startStopPauseImageview.image=[UIImage imageNamed:@"Play"];
-        startStopPauseImageview.frame=CGRectMake((circleView.frame.size.width/2)-10, (circleView.frame.size.height/2)-10, 15, 15);
+        startStopPauseImageview.frame=CGRectMake((newSize/2), (newSize/2)-8, 15, 15);
         startStopPauseImageview.tag=roundedView.tag+200;
 
         circleView.backgroundColor=[UIColor grayColor];
@@ -95,12 +95,12 @@
     if (roundedView.tag==203)
     {
         startStopPauseImageview.image=[UIImage imageNamed:@"Record"];
-        startStopPauseImageview.frame=CGRectMake((circleView.frame.size.width/2)-25, (circleView.frame.size.height/2)-37, 40, 76);
+        startStopPauseImageview.frame=CGRectMake((circleView.frame.size.width/2)-15, (circleView.frame.size.height/2)-25, 30, 50);
         startStopPauseImageview.tag=roundedView.tag+200;
 
         circleView.layer.borderColor = [UIColor whiteColor].CGColor;
         circleView.layer.borderWidth = 3.0f;
-        circleView.backgroundColor=[UIColor redColor];
+        circleView.backgroundColor=[UIColor colorWithRed:194/255.0 green:19/255.0 blue:19/255.0 alpha:1];
         [viewClickbutton addTarget:self action:@selector(startRecording:) forControlEvents:UIControlEventTouchUpInside];
 
     }
@@ -153,12 +153,19 @@
     UIView* startRecordingView= [self.view viewWithTag:303];
     UIView* stopRecordingView = [self.view viewWithTag:301];
     UIView* pauseRecordingView =  [self.view viewWithTag:302];
-   UILabel* recordingStatusLabel= [self.view viewWithTag:99];
+    UILabel* recordingStatusLabel= [self.view viewWithTag:99];
+    UILabel* stopRecordingLabel=[self.view viewWithTag:601];
+    UILabel* pauseRecordingLabel=[self.view viewWithTag:602];
+    UILabel* RecordingLabel=[self.view viewWithTag:603];
+
     
     if ([startRecordingView.backgroundColor isEqual:[UIColor colorWithRed:250/255.0 green:162/255.0 blue:27/255.0 alpha:1]] || [startRecordingView.backgroundColor isEqual:[UIColor blackColor]])
     {
         [stopRecordingView setHidden:YES];
         [pauseRecordingView setHidden:YES];
+        [stopRecordingLabel setHidden:YES];
+        [pauseRecordingLabel setHidden:YES];
+        [RecordingLabel setHidden:YES];
         startRecordingView.backgroundColor=[UIColor blackColor];
         UIImageView* startRecordingImageView= [startRecordingView viewWithTag:403];
         [startRecordingImageView setHidden:NO];
@@ -171,33 +178,67 @@
         else
             startRecordingImageView.image=[UIImage imageNamed:@"Play"];
         
-        UIView* animatedView=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
-        UILabel* ff= [[UILabel alloc]init];
-        ff.text=@"asdffddfsdfsdsdfddf";
-         [animatedView addSubview:ff];
+        //*-------------------for animated flipFromBottom subView---------------------*
         
-//        [UIView transitionWithView:self.view
-//                          duration:0.5
-//                           options:UIViewAnimationOptionTransitionFlipFromBottom //any animation
-//                        animations:^ { [self.view addSubview:animatedView]; }
-//                        completion:nil];
-//        
-//       //
-//        [UIView commitAnimations];
-        animatedView.backgroundColor=[UIColor redColor];
+        if (![[self.view viewWithTag:98] isDescendantOfView:self.view])
+        {
+       
+        UIView* animatedView=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height/2)];
+        animatedView.tag=98;
+        
+        UISlider* audioRecordSlider=[[UISlider alloc]initWithFrame:CGRectMake(animatedView.frame.size.width*0.15,animatedView.frame.size.height*0.01 , animatedView.frame.size.width*0.7, 30)];
+
+            audioRecordSlider.minimumValue = 0.0;
+            audioRecordSlider.maximumValue = 50.0;
+            audioRecordSlider.continuous = YES;
+            audioRecordSlider.value = 25.0;
+            
+        UIButton* uploadAudioButton=[[UIButton alloc]initWithFrame:CGRectMake(animatedView.frame.size.width*0.1, animatedView.frame.size.height*0.2, animatedView.frame.size.width*0.8, 36)];
+        uploadAudioButton.backgroundColor=[UIColor colorWithRed:250/255.0 green:162/255.0 blue:27/255.0 alpha:1];
+        uploadAudioButton.userInteractionEnabled=YES;
+        [uploadAudioButton setTitle:@"Upload Audio" forState:UIControlStateNormal];
+        uploadAudioButton.titleLabel.font = [UIFont systemFontOfSize: 15];
+
+        [uploadAudioButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        uploadAudioButton.layer.cornerRadius=5.0f;
+        
+        UIButton* uploadLaterButton=[[UIButton alloc]initWithFrame:CGRectMake(animatedView.frame.size.width*0.1, uploadAudioButton.frame.origin.y+uploadAudioButton.frame.size.height+10, uploadAudioButton.frame.size.width*0.48, 36)];
+        uploadLaterButton.backgroundColor=[UIColor colorWithRed:64/255.0 green:64/255.0 blue:64/255.0 alpha:1];
+        [uploadLaterButton setTitle:@"Upload Later" forState:UIControlStateNormal];
+        uploadLaterButton.titleLabel.font = [UIFont systemFontOfSize: 15];
+        [uploadLaterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        uploadLaterButton.layer.cornerRadius=5.0f;
+        
+        UIButton* recordNewButton=[[UIButton alloc]initWithFrame:CGRectMake(uploadLaterButton.frame.origin.x+uploadLaterButton.frame.size.width+uploadAudioButton.frame.size.width*0.04, uploadAudioButton.frame.origin.y+uploadAudioButton.frame.size.height+10, uploadAudioButton.frame.size.width*0.48, 36)];
+        recordNewButton.backgroundColor=[UIColor colorWithRed:64/255.0 green:64/255.0 blue:64/255.0 alpha:1];
+        [recordNewButton setTitle:@"Record New" forState:UIControlStateNormal];
+        recordNewButton.titleLabel.font = [UIFont systemFontOfSize: 15];
+        [recordNewButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        recordNewButton.layer.cornerRadius=5.0f;
+        
+        [animatedView addSubview:audioRecordSlider];
+        [animatedView addSubview:uploadAudioButton];
+        [animatedView addSubview:uploadLaterButton];
+        [animatedView addSubview:recordNewButton];
+
+        animatedView.backgroundColor=[UIColor whiteColor];
         
         [UIView animateWithDuration:0.5
                               delay:0.1
                             options: UIViewAnimationCurveEaseIn
                          animations:^{
-                             animatedView.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, self.view.frame.size.width);
+                             animatedView.frame = CGRectMake(0, self.view.frame.size.height*0.6, self.view.frame.size.width, self.view.frame.size.height/2);
                          }
                          completion:^(BOOL finished){
                          }];
         [self.view addSubview:animatedView];
+        
+        }
+        //*-------------------for animated flipFromBottom subView---------------------*
+
     }
     
-    if ([startRecordingView.backgroundColor isEqual:[UIColor redColor]])
+    if ([startRecordingView.backgroundColor isEqual:[UIColor colorWithRed:194/255.0 green:19/255.0 blue:19/255.0 alpha:1]])
     {
         startRecordingView.backgroundColor=[UIColor colorWithRed:250/255.0 green:162/255.0 blue:27/255.0 alpha:1];
         recordingStatusLabel.text=@"Your audio is being recorded";
@@ -213,7 +254,6 @@
     }
    // NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aTimer:) userInfo:nil repeats:YES];
 
-    NSLog(@"hh");
 
 }
 
@@ -236,7 +276,7 @@
     UIView* startRecordingView= [self.view viewWithTag:303];
     UILabel* recordingStatusLabel=[self.view viewWithTag:99];
     recordingStatusLabel.text=@"Tap on recording to start recording your audio";
-    startRecordingView.backgroundColor=[UIColor redColor];
+    startRecordingView.backgroundColor=[UIColor colorWithRed:194/255.0 green:19/255.0 blue:19/255.0 alpha:1];
     UIImageView* startRecordingImageView= [startRecordingView viewWithTag:403];
     UIImageView* counterLabel= [startRecordingView viewWithTag:503];
     
@@ -246,13 +286,22 @@
     UIView* stopRecordingCircleView = [self.view viewWithTag:301];
     UIView* pauseRecordingCircleView =  [self.view viewWithTag:302];
     
-    [stopRecordingCircleView setHidden:NO];
-    [pauseRecordingCircleView setHidden:NO];
-    
-    startRecordingImageView.image=[UIImage imageNamed:@"Record"];
-    startRecordingImageView.frame=CGRectMake((startRecordingView.frame.size.width/2)-25, (startRecordingView.frame.size.height/2)-37, 40, 76);
+    UILabel* stopRecordingLabel=[self.view viewWithTag:601];
+    UILabel* pauseRecordingLabel=[self.view viewWithTag:602];
+    UILabel* recordingLabel=[self.view viewWithTag:603];
 
     
+    [stopRecordingCircleView setHidden:NO];
+    [pauseRecordingCircleView setHidden:NO];
+    [stopRecordingLabel setHidden:NO];
+    [pauseRecordingLabel setHidden:NO];
+    [recordingLabel setHidden:NO];
+
+    startRecordingImageView.image=[UIImage imageNamed:@"Record"];
+    startRecordingImageView.frame=CGRectMake((startRecordingView.frame.size.width/2)-15, (startRecordingView.frame.size.height/2)-25, 30, 50);
+
+    UIView* animatedView=  [self.view viewWithTag:98];
+    [animatedView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning

@@ -47,16 +47,16 @@
     
     UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     UILabel* departmentNameLabel=[cell viewWithTag:101];
-    departmentNameLabel.text=[NSString stringWithFormat:@"File %ld",indexPath.row+1];
+    departmentNameLabel.text=[NSString stringWithFormat:@"MOB-147022459627%ld",indexPath.row+1];
     
     UILabel* timeLabel=[cell viewWithTag:102];
-    timeLabel.text=[NSString stringWithFormat:@"time %ld",indexPath.row+1];
+    timeLabel.text=[NSString stringWithFormat:@"12:45:34"];
     
     UILabel* nameLabel=[cell viewWithTag:103];
-    nameLabel.text=[NSString stringWithFormat:@"abc"];
+    nameLabel.text=[NSString stringWithFormat:@"Sanjay Ubale"];
 
     UILabel* dateLabel=[cell viewWithTag:104];
-    dateLabel.text=[NSString stringWithFormat:@"Date %ld",indexPath.row+1];
+    dateLabel.text=[NSString stringWithFormat:@"03/08/2016"];
 
     
     return cell;
@@ -65,7 +65,7 @@
 {
     //MainTabBarViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBarViewController"];
     
-    [self.navigationController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"Navi"] animated:YES completion:nil];
+    [self.navigationController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"Navigation"] animated:YES completion:nil];
     NSLog(@"%@",self.navigationController);
     NSLog(@"%@",self.tabBarController);
 
